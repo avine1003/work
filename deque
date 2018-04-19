@@ -1,0 +1,18 @@
+# 双端队列实现 回文词 判断
+# deque
+from collections import deque
+
+def check(str):
+    c_deque = deque()
+    for c in str:
+        c_deque.append(c)
+    flag = True
+    while len(c_deque) > 1 and flag:
+        first = c_deque.popleft()
+        last = c_deque.pop()
+        if first != last:
+            flag = False
+    return flag
+
+print(check("abcdefgh"))
+print(check("radar"))
